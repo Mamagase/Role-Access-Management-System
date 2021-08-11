@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2021 at 09:33 AM
+-- Generation Time: Aug 11, 2021 at 11:13 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -47,7 +47,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'gift man', 'gn.mamagase@gmail.com', 'default.jpg', '$2y$10$IzMQV6krvtK..pETT97OyepSeNu3d2Ubebpra2hQKtjQRZOtM4M2u', 1, 1, 1628095355),
 (2, 'malepe moloro', 'moloromalepe17@gmail.com', 'default.jpg', '$2y$10$PmcB7.utPox1zy8RYu7NwOSXAbZE8Q.W5se/MzArwlTUSuulzbVae', 2, 1, 1628095861),
-(3, 'Nkosinathi Kubeka', 'nkosinathi.kubekah@gmail.com', 'default.jpg', '$2y$10$1ZcbN/U7vrfhTpIlYLni1erLr6VHlwQW9DioanI29DDKieX7u9iZm', 2, 1, 1628095883);
+(3, 'Nkosinathi Kubeka', 'nkosinathi.kubekah@gmail.com', 'default.jpg', '$2y$10$1ZcbN/U7vrfhTpIlYLni1erLr6VHlwQW9DioanI29DDKieX7u9iZm', 2, 1, 1628095883),
+(4, 'Admin', 'Admin@gmail.com', 'default.jpg', '$2y$10$1Y4nuWwu7d26UNMUr/EjOOsau7rQ28XrUHQOvRLeH247ru8Pb6PaG', 1, 1, 1628671868);
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
