@@ -69,6 +69,7 @@ Acknowledgement
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
 
+<<<<<<< HEAD
 
 /================================================/
 	USER MANAGEMENT SYSTEM 
@@ -106,3 +107,7 @@ Admin Login Details
 > UserName - Admin@gmail.com
 
 > Password - 12345
+=======
+
+	
+>>>>>>> 31720ed08435e549caecd85fddd76aba07a40ec9
