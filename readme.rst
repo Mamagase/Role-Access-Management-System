@@ -68,3 +68,35 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
+
+/================================================/
+				USER MANAGEMENT SYSTEM 
+/================================================/
+
+Brief overview of the technology:
+
+> Front end: HTML,CSS,Javascript and bootstrap 
+	* HTML - is used to create and save web document
+	* CSS - is used to create attractive layout 
+	* Javascript - is a programming language, commonly use with web browsers
+
+> Back end: PHP, MySQL
+	* PHP (open source software) - is a technology that allows software developers to create dynamically  generated web pages, in HTML, XML.
+	* MySQL - is a database, widely used for accessing querying, updating and managing data in databases
+	N.B to acces MYSQL, use the link: http://localhost/phpmyadmin
+
+Software Requirement 
+> XAMPP Server v3.2.4
+
+Installation Steps:
+> Download zip file and Unzip file on your local server
+> Put this file inside "c:/xampp/htdocs/"
+> Database Configuration 
+	* Open phpmyadmin by using the link: http://localhost/phpmyadmin
+	* import database project_db from the DB folder under your root folder(MyProject/db)
+> Open your browser and put or type "http://localhost/MyProject/"
+
+Admin Login Details
+> UserName - Admin@gmail.com
+> Password - 12345
+	
