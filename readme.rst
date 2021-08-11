@@ -70,7 +70,7 @@ The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
 
 /================================================/
-				USER MANAGEMENT SYSTEM 
+	USER MANAGEMENT SYSTEM 
 /================================================/
 
 Brief overview of the technology:
@@ -86,17 +86,23 @@ Brief overview of the technology:
 	N.B to acces MYSQL, use the link: http://localhost/phpmyadmin
 
 Software Requirement 
+
 > XAMPP Server v3.2.4
 
 Installation Steps:
+
 > Download zip file and Unzip file on your local server
+
 > Put this file inside "c:/xampp/htdocs/"
+
 > Database Configuration 
 	* Open phpmyadmin by using the link: http://localhost/phpmyadmin
 	* import database project_db from the DB folder under your root folder(MyProject/db)
 > Open your browser and put or type "http://localhost/MyProject/"
 
 Admin Login Details
+
 > UserName - Admin@gmail.com
+
 > Password - 12345
 	
