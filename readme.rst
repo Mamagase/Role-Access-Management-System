@@ -72,7 +72,7 @@ contributors to the CodeIgniter project and you, the CodeIgniter user.
 <<<<<<< HEAD
 
 /================================================/
-	USER MANAGEMENT SYSTEM 
+	ROLE MANAGEMENT SYSTEM 
 /================================================/
 
 Brief overview of the technology:
