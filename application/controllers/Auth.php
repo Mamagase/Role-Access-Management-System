@@ -10,6 +10,12 @@ class Auth extends CI_Controller
 	}
 	public function index()
 	{	
+		//check logged in 
+		if ($this->session->userdata('email')) 
+		{
+			redirect('user');
+		}
+
 		$this->form_validation->set_rules('email', 'Email','trim|required|valid_email');
 		$this->form_validation->set_rules('password','Password','trim|required');
 
@@ -75,6 +81,11 @@ class Auth extends CI_Controller
 
 	public function registration()
 	{
+		//check logged in 
+		if ($this->session->userdata('email')) 
+		{
+			redirect('user');
+		}
 		//setting roles for inputs
 		
 		$this->form_validation->set_rules('name','Name','required|trim');
