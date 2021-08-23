@@ -12,7 +12,7 @@
                   </div>
                <?php endif; ?>
 
-               <?= $this->session->flashdata('messageSM'); ?>
+               <?= $this->session->flashdata('message'); ?>
 
                <a href="" class="btn btn-primary mb-3 float-right" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
 
@@ -40,7 +40,7 @@
                      <td><?= $sm['is_active']; ?></td>
                      <td>
                         <a href="" class="badge badge-success">edit</a>
-                        <a href="" class="badge badge-danger">delete</a>
+                        <a href="" class="badge badge-danger" data-toggle="modal" data-target="#deleteSMenuModal">delete</a>
                      </td>
                    </tr>
                    <?php $i++; ?>
@@ -98,6 +98,29 @@
          <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
            <button type="submit" class="btn btn-primary">Add</button>
+         </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteSMenuModal" tabindex="-1" role="dialog" aria-labelledby="deleteSMenuModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteSMenuModalLabel">Delete Submenu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="post">
+         <div class="modal-body">
+            <p>Are you sure you want to delete these records?</p>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+           <button type="submit" class="btn btn-danger">Delete</button>
          </div>
       </form>
     </div>

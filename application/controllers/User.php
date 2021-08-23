@@ -12,13 +12,29 @@ class User extends CI_Controller
     public function index()
     {
         $data['sidebarT'] = 'User';
+        $data['title'] = 'Dashboard';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->db->where('role_id != ', 1);
+        $this->db->where('email != ', $this->session->userdata('email'));
+        $data['users'] = $this->db->get('user')->result_array();
+
+         $this->load->view('templates/header', $data);
+         $this->load->view('templates/sidebar', $data);
+         $this->load->view('templates/topbar', $data);
+         $this->load->view('user/index', $data);
+         $this->load->view('templates/footer'); 
+    }
+
+    public function profile()
+    {
+        $data['sidebarT'] = 'User';
         $data['title'] = 'My Profile';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
          $this->load->view('templates/header', $data);
          $this->load->view('templates/sidebar', $data);
          $this->load->view('templates/topbar', $data);
-         $this->load->view('user/index', $data);
+         $this->load->view('user/profile', $data);
          $this->load->view('templates/footer');
     }
 
@@ -29,6 +45,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
+        $this->form_validation->set_rules('image', 'Image', 'required|trim');
 
         if ($this->form_validation->run() == false) 
         {   
@@ -74,7 +91,7 @@ class User extends CI_Controller
             $this->db->where('email', $email);
             $this->db->update('user');
 
-            $this->session->set_flashdata('messageE', '<div class="alert alert-success" role="alert">Your profile has been updated!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been updated!</div>');
             redirect('user');
         }
     }
@@ -111,7 +128,7 @@ class User extends CI_Controller
             {
                 if ($current_password == $new_password) 
                 {
-                    $this->session->set_flashdata('messageP', '<div class="alert alert-danger" role="alert">New password cannot be the same as current password!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">New password cannot be the same as current password!</div>');
                     redirect('user/changepassword');    
                 }
                 else
@@ -122,7 +139,7 @@ class User extends CI_Controller
                     $this->db->where('email', $this->session->userdata('email'));
                     $this->db->update('user');
 
-                    $this->session->set_flashdata('messageP', '<div class="alert alert-success" role="alert">Password changed!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password changed!</div>');
                     redirect('user/changepassword'); 
                 }
             }

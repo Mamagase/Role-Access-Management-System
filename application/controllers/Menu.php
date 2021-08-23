@@ -28,7 +28,7 @@ class Menu extends CI_Controller
         else
         {
             $this->db->insert('user_menu',['menu' => $this->input->post('menu')]);
-            $this->session->set_flashdata('messageM', '<div class="alert alert-success" role="alert">New menu added!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
                     redirect('menu');
         }
     }
@@ -65,8 +65,43 @@ class Menu extends CI_Controller
                 'is_active' => $this->input->post('is_active')
             ];
             $this->db->insert('user_sub_menu',$data);
-            $this->session->set_flashdata('messageSM', '<div class="alert alert-success" role="alert">New submenu added!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New submenu added!</div>');
                     redirect('menu/submenu');
+        }
+    }
+
+    public function delete($menu_id)
+    {
+        $menu = $this->db->get_where('user_menu', ['id' => $menu_id])->row_array();
+
+        if ($menu) 
+        {
+            $this->db->delete('user_menu', ['id' => $menu_id]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Menu Deleted!</div>');  
+            redirect('admin/menu');
+        }
+        else
+        {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Menu Already Deleted!</div>');  
+            redirect('admin/menu');
+        }
+    }
+
+    public function deleteSubmenu($submenu_id)
+    {
+        $submenu = $this->db->get_where('user_sub_menu', ['id' => $submenu_id])->row_array();
+
+        if ($submenu) 
+        {
+            $this->db->delete('user_sub_menu', ['id' => $submenu_id]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Submenu Deleted!</div>');  
+            redirect('admin/submenu');
+
+        }
+        else
+        {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Submenu Already Deleted!</div>');  
+            redirect('admin/submenu');
         }
     }
 }
