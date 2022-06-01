@@ -108,7 +108,7 @@ Admin Login Details
 
 > Password - 12345
 =======
-
-![](https://github.com/Mamagase/Role-Access-Management-System/blob/main/admin.png)
+.. image:: https://github.com/Mamagase/Role-Access-Management-System/blob/main/admin.png
+  :width: 400
 	
 >>>>>>>
