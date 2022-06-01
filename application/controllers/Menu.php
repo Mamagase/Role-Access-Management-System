@@ -42,6 +42,7 @@ class Menu extends CI_Controller
 
         $data['submenu'] = $this->menu->getSubMenu();
         $data['menu'] = $this->db->get('user_menu')->result_array();
+        
 
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('menu_id', 'Menu', 'required');
@@ -78,12 +79,12 @@ class Menu extends CI_Controller
         {
             $this->db->delete('user_menu', ['id' => $menu_id]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Menu Deleted!</div>');  
-            redirect('admin/menu');
+            redirect('menu');
         }
         else
         {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Menu Already Deleted!</div>');  
-            redirect('admin/menu');
+            redirect('menu');
         }
     }
 
@@ -95,13 +96,13 @@ class Menu extends CI_Controller
         {
             $this->db->delete('user_sub_menu', ['id' => $submenu_id]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Submenu Deleted!</div>');  
-            redirect('admin/submenu');
+            redirect('menu/submenu');
 
         }
         else
         {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Submenu Already Deleted!</div>');  
-            redirect('admin/submenu');
+            redirect('menu/submenu');
         }
     }
 }

@@ -6,11 +6,7 @@
 
         <div class="row">
            <div class="col-lg">
-               <?php if(validation_errors()): ?>
-                  <div class="alert alert-danger" role="alert">
-                    <?= validation_errors(); ?>
-                  </div>
-               <?php endif; ?>
+
 
                <?= $this->session->flashdata('message'); ?>
 
@@ -68,6 +64,11 @@
         </button>
       </div>
       <form action="<?= base_url('menu/submenu'); ?> " method="post">
+         <?php if(validation_errors()): ?>
+            <div class="alert alert-danger" role="alert">
+              <?= validation_errors(); ?>
+            </div>
+         <?php endif; ?>
          <div class="modal-body">
            <div class="form-group">
              <input type="text" class="form-control" id="title" name="title" placeholder="Enter Submenu Title">
@@ -114,7 +115,7 @@
            <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="" method="post">
+      <form action="<?= base_url('menu/deleteSubmenu/') . $sm['id']; ?>" method="post">
          <div class="modal-body">
             <p>Are you sure you want to delete these records?</p>
          </div>

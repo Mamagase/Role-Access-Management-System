@@ -20,7 +20,7 @@
                      <th scope="col">Menu</th>
                      <th scope="col">Action</th>
                    </tr>
-                  </thead>
+                  </thead> 
                   <tbody>
                    <?php $i = 1; ?>
                    <?php foreach($menu as $m) : ?>  
@@ -81,7 +81,7 @@
            <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="" method="post">
+      <form action="<?= base_url('menu/delete/') . $m['id']; ?>" method="post">
          <div class="modal-body">
             <p>Are you sure you want to delete these records?</p>
          </div>
@@ -92,4 +92,5 @@
       </form>
     </div>
   </div>
-</div>
+</div> 
+

@@ -31,12 +31,23 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['role'] = $this->db->get('user_role')->result_array();
+        $this->form_validation->set_rules('role', 'Role', 'required');
 
+
+        if($this->form_validation->run() == false)
+        {        
          $this->load->view('templates/header', $data);
          $this->load->view('templates/sidebar', $data);
          $this->load->view('templates/topbar', $data);
          $this->load->view('admin/role', $data);
          $this->load->view('templates/footer');
+        }
+        else
+        {
+            $this->db->insert('user_role',['role' => $this->input->post('role')]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New role added!</div>');
+                    redirect('admin/role');
+        }
     }
 
 
@@ -49,12 +60,14 @@ class Admin extends CI_Controller
         $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
         $this->db->where('id != ', 1);
         $data['menu'] = $this->db->get('user_menu')->result_array();
+        
 
-         $this->load->view('templates/header', $data);
-         $this->load->view('templates/sidebar', $data);
-         $this->load->view('templates/topbar', $data);
-         $this->load->view('admin/role-access', $data);
-         $this->load->view('templates/footer');
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/role-access', $data);
+            $this->load->view('templates/footer');
+
     }
 
     public function changeAccess()

@@ -7,7 +7,7 @@
         <div class="row">
            <div class="col-lg-6"> 
 
-               <?= form_error('menu', '<div class="alert alert-danger" role="alert">','</div>'); ?>
+               <?= form_error('role', '<div class="alert alert-danger" role="alert">','</div>'); ?>
 
                <?= $this->session->flashdata('message'); ?>
 
@@ -57,7 +57,7 @@
            <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('role'); ?> " method="post">
+      <form action="<?= base_url('admin/role'); ?> " method="post">
          <div class="modal-body">
            <div class="form-group">
              <input type="text" class="form-control" id="role" name="role" placeholder="Enter name">
